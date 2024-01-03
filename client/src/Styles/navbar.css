@@ -1,0 +1,16 @@
+.navbar {
+    background-color: blue;
+    display:flex;
+    align-items: center;
+    padding: 10px;
+}
+
+h2{
+    margin-left: -50px;
+}
+/* 
+.navbar img.image {
+    width: 30px;
+    height: 20px;
+    margin-left: 10px; 
+} */
