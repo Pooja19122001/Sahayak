@@ -1,12 +1,8 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React from 'react';
 
-
-export const Messages = (props) => {
-  const [message, setMessage] = useState(''); // State to hold the message
-  const [status, setStatus] = useState(''); // State to display status/messages
-
-  const handleSendMessage = async () => {
+export const ShareLocation = (props) => {
+  const shareLocation = async () => {
     try {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
@@ -17,7 +13,7 @@ export const Messages = (props) => {
 
             // Iterate through phoneNumbers and send location to each number
             for (const phoneNumber of phoneNumbers) {
-              await axios.post('http://localhost:3000/Messages', {
+              await axios.post('http://localhost:3000/send-location', {
                 location,
                 phoneNumber,
               });
@@ -39,18 +35,7 @@ export const Messages = (props) => {
 
   return (
     <div>
-      <textarea
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-        placeholder="Type your message here"
-        rows={4}
-        cols={50}
-      />
-      <br />
-      
-      <button onClick={handleSendMessage}>Send Messages</button>
-      
-      {status && <p>{status}</p>}
+      {/* <button onClick={shareLocation}>Share Location</button> */}
     </div>
   );
 };

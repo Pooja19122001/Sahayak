@@ -5,12 +5,20 @@
     padding: 10px;
 }
 
-h2{
-    margin-left: -50px;
+.navbar h2{
+    margin-left: -300px;
 }
-/* 
-.navbar img.image {
-    width: 30px;
-    height: 20px;
-    margin-left: 10px; 
-} */
+
+button{
+    border: none;
+    background-color: blue;
+    color:white;
+}
+
+.navbar .image {
+    image-resolution: 10px;
+    width: 80px;
+    height: 50px;
+    margin-left: -500px; 
+    
+} 

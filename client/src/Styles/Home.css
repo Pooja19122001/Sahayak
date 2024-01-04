@@ -1,9 +1,10 @@
 .images{
-    image-resolution: -10px;
+    image-resolution: 100px;
     height: 30px;
-    width: 80px;
+    width: 90px;
 }
-.spec{
+/* .spec{
     color:black;
     font-size: 25px;
 }
+*/

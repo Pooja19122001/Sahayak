@@ -2,7 +2,7 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { Link } from "react-router-dom";
-import DomesticOption from '../pages/DomesticOption';
+import "../Styles/Home.css";
 
 export const Home=()=> {
   return (
@@ -35,7 +35,7 @@ export const Home=()=> {
         </Col>
         <Col>
           <Card>
-          <Link to="/DomesticOption" element={<DomesticOption/>}><Card.Img class="images"variant="top" src="https://www.pngall.com/wp-content/uploads/5/Helping-Hands-PNG-Clipart.png" 
+          <Link to="/DomesticOption"><Card.Img class="images"variant="top" src="https://www.pngall.com/wp-content/uploads/5/Helping-Hands-PNG-Clipart.png" 
             /></Link>
             <Card.Body>
               <Card.Title>Domestic Help</Card.Title>

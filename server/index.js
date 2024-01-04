@@ -57,11 +57,14 @@ const cors = require('cors');
 const Helper = require('./Model/Helper');
 const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
-
+const userRouter = require("./route/user");
+const location = require("./route/Location");
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use("/auth",userRouter);
+app.use("/Messages",location);
 
 mongoose.connect("mongodb://127.0.0.1:27017/Sahayak1", {
   useNewUrlParser: true,
@@ -85,6 +88,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/Sahayak1", {
   app.get('/domesticOption', async (req, res) => {
     try {
       const specializations = await Helper.distinct('specialization');
+      console.log(specializations);
       res.json(specializations);
     } catch (err) {
       res.status(500).json({ error: err.message });
