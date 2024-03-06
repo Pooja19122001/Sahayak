@@ -1,10 +1,14 @@
 import { useState } from 'react';
 import "../Styles/UserLogin.css";
+import "../Styles/register.css";
 
 export const User=()=> {
-    const [username, setUsername] = useState(""); //username="roshni"
+    const [username, setUsername] = useState("");
     const [age, setAge] = useState("");
     const [phone_no, setPhone_no] = useState("");
+    const [twilio_no, setTwilio_no] =useState("");
+    const [twilio_sid, setTwilio_sid] =useState("");
+    const [twilio_auth_token, setTwilio_auth_token] =useState("");
     const [address, setAddress] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -15,11 +19,11 @@ export const User=()=> {
         let result = await fetch("http://localhost:3000/user",
         {
             method: "POST",
-            body: JSON.stringify({username, age, phone_no, address, email, password}),
+            body: JSON.stringify({username, age, phone_no, twilio_no, twilio_sid, twilio_auth_token, address, email, password}),
             headers: {'Content-Type': 'application/json'},
         })
         // result = await result.json;
-
+        alert("Registration Successfull")
         // localStorage.setItem("users", JSON.stringify(result));
     }
 
@@ -43,6 +47,25 @@ export const User=()=> {
                         <input type="number" name="phone_no" placeholder="Phone" required
                          value={phone_no}
                          onChange={(e) => setPhone_no(e.target.value)}/>
+                        <i class="bi bi-telephone-plus"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="number" name="twilio_no" placeholder="Twilio Number" required
+                         value={twilio_no}
+                         onChange={(e) => setTwilio_no(e.target.value)}/>
+                         <p className="text">Don't have an account?<a href="https://www.twilio.com/login?iss=https%3A%2F%2Flogin.twilio.com%2F">Create an account.</a></p>
+                        <i class="bi bi-telephone-plus"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" name="twilio_sid" placeholder="Twilio Account SID" required
+                         value={twilio_sid}
+                         onChange={(e) => setTwilio_sid(e.target.value)}/>
+                        <i class="bi bi-telephone-plus"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" name="twilio_auth_token" placeholder="Twilio Auth Token" required
+                         value={twilio_auth_token}
+                         onChange={(e) => setTwilio_auth_token(e.target.value)}/>
                         <i class="bi bi-telephone-plus"></i>
                     </div>
                     <div class="input-box">

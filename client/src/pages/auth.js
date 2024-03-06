@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useCookies } from "react-cookie";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import '../Styles/auth.css';
 
 export const Auth = () => {
@@ -13,13 +13,30 @@ export const Auth = () => {
   );
 };
 
+
 const UserLogin = () => {
 
-  const [email, setEmail] = useState(""); 
+  const [email, setEmail] =  useState(''); 
   const [password, setPassword] = useState(""); 
   const [_, setCookies] = useCookies(["access_token"]);
 
   const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   userEmail();
+  // }, [email]);
+
+ const userEmail = async () => {
+    try{
+          await axios.post("http://localhost:3000/auth/email", 
+          {
+              email,
+          });
+    }
+    catch (error) {
+      console.error(error);
+    }
+ }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -33,6 +50,10 @@ const UserLogin = () => {
 
       setCookies("access_token", result.data.token);
       var ans= window.localStorage.setItem("userID", result.data.userID);
+      console.log(email)
+      await userEmail();
+      alert("Login Successfull")
+     
       navigate("/");
     } catch (error) {
       console.error(error);
@@ -65,6 +86,13 @@ const UserLogin = () => {
           />
         </div>
         <button className="Login" type="submit">Login</button>
+        <div className="register">
+          <p>Do you have account?
+            <Link to="/User" className="account">
+            Create an account.
+            </Link>
+          </p>
+        </div>
       </form>
     </div>
     </div>
@@ -92,6 +120,7 @@ const HelperLogin = () => {
 
       setCookies("access_token", result.data.token);
       window.localStorage.setItem("userID", result.data.userID);
+      alert("Login Successfull")
       navigate("/");
     } catch (error) {
       console.error(error);
@@ -124,6 +153,13 @@ const HelperLogin = () => {
           />
         </div>
         <button className="Login" type="submit">Login</button>
+        <div className="register">
+          <p>Do you have account?
+            <Link to="/Helper" className="account">
+            Create an account.
+          </Link>
+          </p>
+        </div>
       </form>
     </div>
     </div>

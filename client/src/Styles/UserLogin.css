@@ -1,7 +1,7 @@
 .wrapper{
-    background-color: rgb(15, 84, 212);
+    background-color: blue;
     border-radius: 15px;
-    width: 500px;
+    width: 40vw;
     padding:10px;
     text-align: center;
 }

@@ -14,17 +14,15 @@ export const Navbar = () => {
     navigate("/register");
   };
   return (
-    <div className="navbar">
-      <h2>Sahayak</h2>
-      <img className= "image" src={logo} alt="Proj logo"/>
-      <Link to="/">Home</Link>
-      <Link to="/user">User</Link>
-      <Link to="/helper">Helper</Link>
-      {!cookies.access_token ? (
-        <Link to="/auth">Login</Link>
-      ) : (
-        <button onClick={logout}> Logout </button>
-      )}
+    <div className="navbar" >
+        <ul className="nav">
+          <li className="nav-item">
+          <img className= "image" src={logo} alt="Proj logo"/>
+          </li>
+          <li className="nav-item">
+          <Link to="/" className="text">Sahayak</Link>
+          </li>
+        </ul>
     </div>
   );
 };
